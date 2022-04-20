@@ -1,16 +1,17 @@
 const express = require('express');
 const app = express();
+const embeds = require('./embeds');
 
 app.get('/', (req, res) => {
-    if (req.query.i === undefined) {
+    const embed = req.query.i;
+    const e = embeds[embed] || 'unknown';
+
+    if (e !== 'unknown') {
         res.set('Content-Type', 'text/html');
-        res.send('<meta property="og:title" content="Embed not found" />')
-    } else if (req.query.i === 'discord') {
-        res.set('Content-Type', 'text/html');
-        res.send(`<meta property="og:title" content="Note to Discord Staff" />
-        <meta property="og:description" content="This is a script development community. We do not spread files which disrupt user's computers, we do not crack products and distribute them, we do not sell compromised accounts." />
-        <meta name="theme-color" content="#8c34eb">`);
-    }
+        res.send(`<meta property="og:title" content="${e.title || 'Title'}" />
+<meta property="og:description" content="${e.description || 'Description'}" />
+<meta name="theme-color" content="${e.colour || '#8c34eb'}">`)
+    } else res.send(e);
 })
 
 app.listen(process.env.PORT || 3000, (err) => {
