@@ -3,5 +3,4 @@
 </p>
 
 # Embed API
-Current embeds:
-- discord
+inspired by guard's embed thingy, but open-sourced and probably worser code
