@@ -7,10 +7,18 @@ app.get('/', (req, res) => {
     const e = embeds[embed] || 'unknown';
 
     if (e !== 'unknown') {
-        res.set('Content-Type', 'text/html');
-        res.send(`<meta property="og:title" content="${e.title || 'Title'}" />
+        if (e.image) {
+            res.set('Content-Type', 'text/html');
+            res.send(`<meta property="og:title" content="${e.title || 'Title'}" />
+<meta property="og:description" content="${e.description || 'Description'}" />
+<meta name="theme-color" content="${e.colour || '#8c34eb'}">
+<meta content="${e.image}" property="og:image" />`)
+        } else {
+            res.set('Content-Type', 'text/html');
+            res.send(`<meta property="og:title" content="${e.title || 'Title'}" />
 <meta property="og:description" content="${e.description || 'Description'}" />
 <meta name="theme-color" content="${e.colour || '#8c34eb'}">`)
+        }
     } else res.send(e);
 })
 
