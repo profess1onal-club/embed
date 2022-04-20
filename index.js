@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
             res.send(`<meta property="og:title" content="${e.title || 'Title'}" />
 <meta property="og:description" content="${e.description || 'Description'}" />
 <meta name="theme-color" content="${e.colour || '#8c34eb'}">
-<meta content="${e.image}" property="og:image" />`)
+<meta property="og:image" content="${e.image}" />`)
         } else {
             res.set('Content-Type', 'text/html');
             res.send(`<meta property="og:title" content="${e.title || 'Title'}" />
