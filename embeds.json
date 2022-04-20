@@ -2,6 +2,7 @@
     "example": {
         "title": "Hello",
         "description": "This is a test :)",
-        "colour": "#8c34eb"
+        "colour": "#8c34eb",
+        "image": "https://cdn.profess1onal.club/logo.png"
     }
 }
