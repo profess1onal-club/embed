@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.profess1onal.club/logo.png" width="300" />
+  <img src="https://profess1onal.club/logo.png" width="300" />
 </p>
 
 # Embed API
